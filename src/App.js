@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import InputForm from "./components/input-form";
+import { getLoginConfig, getSignUpConfig, getDetailsConfig } from "./example/config";
 function App() {
+  const [formDetails, setFormDetails] = React.useState({});
+
+  const onChange = (value, dataLabel) => {
+    setFormDetails({
+      ...formDetails,
+      [dataLabel]: value
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="f-c">
+        <h1>Login</h1>
+        <InputForm config={getLoginConfig(onChange, formDetails)} />
+      </div>
+      <div className="f-c">
+        {/* Signup form      */}
+        <h1>Signup</h1>
+        <InputForm config={getSignUpConfig(onChange, formDetails)} />
+      </div>
+
+      <div className="f-c">
+        {/* Signup form      */}
+        <h1>Details</h1>
+        <InputForm config={getDetailsConfig(onChange, formDetails)} />
+      </div>
     </div>
   );
 }

@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.App{
+  display:flex;
+}
+
+.f-c{
+  max-width: 400px;  
+  background-color: white;
+  margin: 20px;  
+}
