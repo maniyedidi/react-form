@@ -1,13 +1,21 @@
 import "./input-form.css";
 
 const InputForm = ({ config }) => {
-  const getElement = ({ type, label, errorFlag, errorMsg, options = [] }) => {
+  const getElement = ({
+    type,
+    label,
+    errorFlag,
+    errorMsg,
+    options,
+    onChange,
+    value
+  }) => {
     switch (type) {
       case "text":
         return (
           <div>
-            <label htmlFor={type.label}>{label}</label>
-            <input type="text" id={type.label} />
+            <label>{label}</label>
+            <input type="text" onChange={onChange} value={value} />
             {errorFlag && <span>{errorMsg}</span>}
           </div>
         );
@@ -16,7 +24,7 @@ const InputForm = ({ config }) => {
         return (
           <div>
             <label>{label}</label>
-            <input type="number" />
+            <input type="number" onChange={onChange} value={value} />
             {errorFlag && <span>{errorMsg}</span>}
           </div>
         );
@@ -24,7 +32,7 @@ const InputForm = ({ config }) => {
         return (
           <div>
             <label>{label}</label>
-            <input type="password" />
+            <input type="password"  onChange={onChange} value={value} />
             {errorFlag && <span>{errorMsg}</span>}
           </div>
         );
@@ -32,7 +40,7 @@ const InputForm = ({ config }) => {
         return (
           <div>
             <label>{label}</label>
-            <input type="date" />
+            <input type="date"  onChange={onChange} value={value} />
             {errorFlag && <span>{errorMsg}</span>}
           </div>
         );
@@ -40,7 +48,7 @@ const InputForm = ({ config }) => {
         return (
           <div>
             <label>{label}</label>
-            <select>
+            <select onChange={onChange} value={value}>
               {options.map(option => {
                 return <option value={option}>{option}</option>;
               })}

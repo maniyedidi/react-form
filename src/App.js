@@ -5,20 +5,19 @@ function App() {
   const [formDetails, setFormDetails] = React.useState({});
 
   const onChange = (value, dataLabel) => {
+    debugger;
     setFormDetails({
       ...formDetails,
       [dataLabel]: value
     });
   };
-
   return (
     <div className="App">
       <div className="f-c">
         <h1>Login</h1>
         <InputForm config={getLoginConfig(onChange, formDetails)} />
       </div>
-      <div className="f-c">
-        {/* Signup form      */}
+      <div className="f-c">        
         <h1>Signup</h1>
         <InputForm config={getSignUpConfig(onChange, formDetails)} />
       </div>

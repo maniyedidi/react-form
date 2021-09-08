@@ -20,8 +20,8 @@ export const getSignUpConfig = (onChange, formDetails) => {
     {
       label: "Name",
       type: "text",
-      onChange: e => onChange(e.target.value, "name"),
-      value: formDetails.email
+      onChange: e => onChange(e.target.value, "userName"),
+      value: formDetails.name
     },
     {
       label: "Email",
@@ -39,11 +39,10 @@ export const getSignUpConfig = (onChange, formDetails) => {
       label: "Confirm Password",
       type: "password",
       onChange: e => onChange(e.target.value, "cpassword"),
-      value: formDetails.password
+      value: formDetails.cpassword
     }
   ];
 };
-
 
 export const getDetailsConfig = (onChange, formDetails) => {
   return [
@@ -51,13 +50,13 @@ export const getDetailsConfig = (onChange, formDetails) => {
       label: "Name",
       type: "text",
       onChange: e => onChange(e.target.value, "name"),
-      value: formDetails.email
+      value: formDetails.name
     },
     {
       label: "Age",
       type: "number",
       onChange: e => onChange(e.target.value, "age"),
-      value: formDetails.email,
+      value: formDetails.age,
       errorFlag:true,
       errorMsg:'required'
     },
@@ -65,7 +64,7 @@ export const getDetailsConfig = (onChange, formDetails) => {
       label: "DOB",
       type: "date",
       onChange: e => onChange(e.target.value, "date"),
-      value: formDetails.password
+      value: formDetails.date
     },
     {
       label: "Gender",
